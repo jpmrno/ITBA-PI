@@ -7,17 +7,20 @@
 //
 
 /* Ejercicio 9
-Los laboratorios de Propulsión por Reacción tienen la representación del cielo y
+Los laboratorios de Propulsión por Reacción tienen la representación del cielo y
 sus estrellas, digitalizada en una matriz bidimensional de hasta 80 columnas por
 20 filas. Cada elemento de la misma representa la cantidad de luz que hay en una
 zona del cielo con un rango de intensidad entre 0 y 20. En el lugar de coordenadas
 (i,j) del cielo se considera que hay una estrella si el elemento Aij correspondiente
-cumple con la siguiente relación:
+cumple con la siguiente relación:
 
 ( A[i,j] + suma de las ocho intensidades circundantes ) / 9 > 10
 
-Escribir una función (en no más de 15 líneas) que reciba tres parámetros de entrada representando a una matriz de dichas características y sus dimensiones. Dicha función debe localizar gráficamente las estrellas en la pantalla representando las mismas con el caracter ‘*’. La función debe ignorar las aristas de la matriz.
-Nota: para completar la matriz no hace falta interactuar con el usuario, utilizar números aleatorios.
+Escribir una función (en no más de 15 líneas) que reciba tres parámetros de entrada representand
+o a una matriz de dichas características y sus dimensiones. Dicha función debe localizar gráficamen
+te las estrellas en la pantalla representando las mismas con el caracter ‘*’. La función debe ignorar las
+aristas de la matriz.
+Nota: para completar la matriz no hace falta interactuar con el usuario, utilizar números aleatorios.
 */
 
 #include <stdio.h>
