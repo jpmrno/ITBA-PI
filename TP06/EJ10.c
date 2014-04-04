@@ -1,12 +1,12 @@
 //
-//  Ej 9.c
+//  Ej 10.c
 //  Programacion Imperativa
 //
 //  Created by Juan Moreno on 3/10/14.
 //  Copyright (c) 2014 Juan Moreno. All rights reserved.
 //
 
-/* Ejercicio 9
+/* Ejercicio 10
 Los laboratorios de Propulsión por Reacción tienen la representación del cielo y
 sus estrellas, digitalizada en una matriz bidimensional de hasta 80 columnas por
 20 filas. Cada elemento de la misma representa la cantidad de luz que hay en una
