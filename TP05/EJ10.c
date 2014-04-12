@@ -7,7 +7,11 @@
 //
 
 /* Ejercicio 10
-
+Escribir un programa que ofrezca un menú con las siguientes opciones:
+􏰀 􏰀 􏰀
+Simplificar una fracción Sumar dos fracciones Terminar la ejecución
+Si se elige la primera opción se le solicitará numerador y denominador de la fracción y se imprimirá la fracción simplificada (algunos de ellos podrían ser negativos). Si se opta por la segunda, se le solicitará dos fracciones y se imprimirá la suma de las mismas, también simplificada. Obviamente con la tercera opción finaliza la ejecución del mismo. Escribir una función para cada item del menú. (No más de 20 líneas para main y no más de 10 líneas para las funciones del menú).
+Pista: Escribir y usar la función DivisorComunMaximo.
 */
 
 #include <stdio.h>
