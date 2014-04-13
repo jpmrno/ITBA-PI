@@ -1,5 +1,5 @@
 //
-//  Ej 10.c
+//  Ej 10a.c
 //  Programacion Imperativa
 //
 //  Created by Juan Moreno on 3/10/14.
@@ -14,6 +14,7 @@ zona del cielo con un rango de intensidad entre 0 y 20. En el lugar de coordenad
 (i,j) del cielo se considera que hay una estrella si el elemento Aij correspondiente
 cumple con la siguiente relación:
 
+Esta version suma todo de una en vez de separar el elemento [i,j]
 ( A[i,j] + suma de las ocho intensidades circundantes ) / 9 > 10
 
 Escribir una función (en no más de 15 líneas) que reciba tres parámetros de entrada representando a una matriz de dichas características y sus dimensiones. Dicha función debe localizar gráficamente las estrellas en la pantalla representando las mismas con el caracter ‘*’. La función debe ignorar las aristas de la matriz.
@@ -30,17 +31,19 @@ Nota: para completar la matriz no hace falta interactuar con el usuario, utiliza
 
 double randNormalize(void);
 int circundantes(int i, int j, int matriz[FILAS][COLUMNAS]);
-void matrizEstrellas(int matriz[FILAS][COLUMNAS]);
+void matrizEstrellas(int matriz[FILAS][COLUMNAS], int newMatriz[FILAS][COLUMNAS]);
 void makeMatriz(int matriz[FILAS][COLUMNAS]);
-
 
 int main(void) {
 	srand(time(0));
 
 	int matriz[FILAS][COLUMNAS];
+	int newMatriz[FILAS][COLUMNAS];
 	int i, j;
 
 	makeMatriz(matriz);
+	matrizEstrellas(matriz, newMatriz);
+
 	for (i = 0; i < FILAS; i++) {
 		printf("%d)\t", i+1);
 		for (j = 0; j < COLUMNAS; j++) {
@@ -49,11 +52,12 @@ int main(void) {
 		printf("\n");
 	}
 
-	matrizEstrellas(matriz);
+	printf("\n");
+
 	for (i = 0; i < FILAS; i++) {
 		printf("%d)\t", i+1);
 		for (j = 0; j < COLUMNAS; j++) {
-			printf("%c\t", matriz[i][j]);
+			printf("%c\t", newMatriz[i][j]);
 		}
 		printf("\n");
 	}
@@ -70,15 +74,15 @@ void makeMatriz(int matriz[FILAS][COLUMNAS]) {
 	}
 }
 
-void matrizEstrellas(int matriz[FILAS][COLUMNAS]) {
+void matrizEstrellas(int matriz[FILAS][COLUMNAS], int newMatriz[FILAS][COLUMNAS]) {
 	int i, j;
 
 	for (i = 1; i < FILAS - 1; i++) {
 		for (j = 1; j < COLUMNAS - 1; j++) {
-			if(((matriz[i][j] + circundantes(i, j, matriz)) / 9) > 4) {
-				matriz[i][j] = '*';
+			if(((circundantes(i, j, matriz)) / 9.0) > 10) {
+				newMatriz[i][j] = '*';
 			} else {
-				matriz[i][j] = ' ';
+				newMatriz[i][j] = ' ';
 			}
 		}
 	}
@@ -91,9 +95,7 @@ int circundantes(int i, int j, int matriz[FILAS][COLUMNAS]) {
 
 	for(cond1 = (i - 1); cond1 <= (i + 1); cond1++) {
 		for(cond2 = (j - 1); cond2 <= (j + 1); cond2++) {
-			if (cond1 != i && cond2 != j){
-				suma+= matriz[i][j];
-			}
+			suma+= matriz[cond1][cond2];
 		}
 	}
 	return suma;

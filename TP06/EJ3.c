@@ -25,13 +25,14 @@ cero.
 float mayorDif(float arrayLineal[]);
 
 int main(void) {
-	float arrayLineal[] = { 2, 2, -1, -16, -8, EOA };
+	float arrayLineal[] = { 2, 2, -1, -16.5, -8, EOA };
 	printf("La mayor diferencia es: %f\n", mayorDif(arrayLineal));
 }
 
 float mayorDif(float arrayLineal[]) {
-	float mayor, mayorTemp = 0;
+	float mayor, mayorTemp;
 	int i;
+	mayor = mayorTemp = 0;
 	for ( i = 0; arrayLineal[i+1] != 0; i++) {
 		mayorTemp = arrayLineal[i] - arrayLineal[i+1];
 		mayorTemp = MODULO(mayorTemp);
