@@ -1,0 +1,31 @@
+#!/bin/bash
+clear
+limArgumentos="1"
+red='\033[0;31m'
+yellow='\033[1;33m'
+NC='\033[0m'
+if [ $limArgumentos = "$#" ]
+then
+	echo -e "${yellow}-----> Generando ejecutable... \n${NC}"
+	echo -e "${yellow}----- WARNINGS AND ERRORS: ------\n${NC}"
+	gcc -Wall -pedantic -g -o $1.out $1.c getnum2.c
+	if [ "$?" = 0 ]
+	then
+		sleep 1s
+		clear
+		echo -e "${yellow}-----> Correr el programa?${NC}"
+		read seguir
+		echo $seguir | egrep '^[yYsS]$' > /dev/null
+		if [ "$?" = 0 ]
+		then
+			clear
+			./$1.out
+		else
+			clear
+		fi
+	else
+		echo -e "${red}\n^^^^^^ EROR ^^^^^^\n${NC}"
+	fi
+else
+	echo -e "${red}****** Cantidad de argumentos incorrecta. ******${NC}"
+fi
