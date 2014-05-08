@@ -18,7 +18,6 @@
 // Condiciones iniciales
 #define FILAS 3
 #define COLUMNAS 5
-#define MINNUM 1
 #define MAXNUM 90
 
 #define ERROR 0
@@ -33,14 +32,14 @@ void liberaMatriz(int ** matriz, size_t filas);
 int main(void) {
 	srand(time(0));
 	int i, j, k;
-	int filas = FILAS, columnas = COLUMNAS;
+	int filas = FILAS, columnas = COLUMNAS, maxnum = MAXNUM;
 	int *** carton;
 	int jugadores = getint("Cuantos jugadores? ");
 carton = malloc(jugadores * sizeof(**carton));
 	for( i = 0; i < jugadores; i++) {
 		if(carton[i] == NULL)
 			return ERROR;
-		carton[i] = generarCarton(FILAS, COLUMNAS, MAXNUM);
+		carton[i] = generarCarton(filas, columnas, maxnum);
 		if(carton[i] == NULL) {
 			return ERROR;
 		}
