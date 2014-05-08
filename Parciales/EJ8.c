@@ -36,9 +36,8 @@ int main(void) {
 	int filas = FILAS, columnas = COLUMNAS;
 	int *** carton;
 	int jugadores = getint("Cuantos jugadores? ");
-
+carton = malloc(jugadores * sizeof(**carton));
 	for( i = 0; i < jugadores; i++) {
-		carton[i] = malloc(jugadores * sizeof(**carton));
 		if(carton[i] == NULL)
 			return ERROR;
 		carton[i] = generarCarton(FILAS, COLUMNAS, MAXNUM);
